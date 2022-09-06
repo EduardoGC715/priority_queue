@@ -42,7 +42,7 @@ public:
                 this->last->setPrevious(newNode);
                 this->last = newNode;
             }
-        } 
+        }
         else {
             this->first = newNode;
             this->last = newNode;
