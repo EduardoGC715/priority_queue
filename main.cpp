@@ -5,10 +5,10 @@
 int main() {
     auto* cola = new Queue<int>();
 
-    cola->enqueue(3,0);
-    cola->enqueue(2,0);
-    cola->enqueue(1,0);
-    cola->enqueue(4,0);
+    cola->enqueue(3);
+    cola->enqueue(2);
+    cola->enqueue(1);
+    cola->enqueue(4);
 
     cout<<"cola sin prioridad"<<endl;
     while (!cola->isEmpty()){
@@ -21,6 +21,8 @@ int main() {
     cola_prioridad->enqueue(1,1);
     cola_prioridad->enqueue(2,2);
     cola_prioridad->enqueue(4,4);
+    cola_prioridad->enqueue(2,2);
+    cola_prioridad->enqueue(215,1);
 
     cout<<"cola con prioridad"<<endl;
     while (!cola_prioridad->isEmpty()){

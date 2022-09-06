@@ -16,13 +16,23 @@ public:
         quantity = 0;
     }
 
-    void enqueue(T pData, int pPriority) {
+    void enqueue(T pData, int pPriority=0) {
         //Prioridad: El número más pequeño va primero
         Node<T> *newNode = new Node<T>(pData, pPriority);
         if (this->quantity>0) {
-            if(pPriority>this->first->getPriority() && pPriority<this->last->getPriority()){
+            if(pPriority<this->first->getPriority()) {
+                this->first->setNext(newNode);
+                newNode->setPrevious(this->first);
+                this->first=newNode;
+            }
+            else if(pPriority>=this->last->getPriority()){
+                newNode->setNext(last);
+                this->last->setPrevious(newNode);
+                this->last = newNode;
+            }
+            else{
                 searchPosition=this->first->getPrevious();
-                if (searchPosition->getPriority()>pPriority) {
+                if (searchPosition->getPriority()>=pPriority) {
                     newNode->setNext(searchPosition->getNext());
                     newNode->setPrevious(searchPosition);
                     searchPosition->getNext()->setPrevious(newNode);
@@ -31,16 +41,6 @@ public:
                 else{
                     searchPosition= searchPosition->getNext();
                 }
-            }
-            else if(pPriority<this->first->getPriority()) {
-                this->first->setNext(newNode);
-                newNode->setPrevious(this->first);
-                this->first=newNode;
-            }
-            else{
-                newNode->setNext(last);
-                this->last->setPrevious(newNode);
-                this->last = newNode;
             }
         }
         else {
