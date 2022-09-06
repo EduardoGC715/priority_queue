@@ -21,7 +21,7 @@ public:
         Node<T> *newNode = new Node<T>(pData, pPriority);
         if (this->quantity>0) {
             if(pPriority>this->first->getPriority() && pPriority<this->last->getPriority()){
-                searchPosition=this->first->getNext();
+                searchPosition=this->first->getPrevious();
                 if (searchPosition->getPriority()>pPriority) {
                     newNode->setNext(searchPosition->getNext());
                     newNode->setPrevious(searchPosition);
