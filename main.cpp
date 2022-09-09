@@ -17,12 +17,15 @@ int main() {
 
     auto* cola_prioridad = new Queue<int>();
 
+
     cola_prioridad->enqueue(3,3);
     cola_prioridad->enqueue(1,1);
     cola_prioridad->enqueue(2,2);
+    cola_prioridad->enqueue(41,4);
     cola_prioridad->enqueue(4,4);
-    cola_prioridad->enqueue(2,2);
-    cola_prioridad->enqueue(215,1);
+    cola_prioridad->enqueue(11,1);
+    cola_prioridad->enqueue(21,2);
+    cola_prioridad->enqueue(31,3);
 
     cout<<"cola con prioridad"<<endl;
     while (!cola_prioridad->isEmpty()){
